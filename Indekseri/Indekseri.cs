@@ -18,13 +18,9 @@ namespace Vsite.CSharp.Svojstva
             { 51000, "Rijeka" }
         };
 
-        // TODO:040 Definirati svojstvo s int kao parametrom koje će za zadani poštanski broj vratiti mjesto. Otkomentirati naredbu u metodi IspišiNazivMjesta, pokrenuti program i testove.
+        // TODO:040 Definirati svojstvo s int kao parametrom koje će za zadani poštanski broj vratiti mjesto.
 
-
-
-        // TODO:041 Definirati svojstvo sa string kao parametrom koje će za zadano mjesto vratiti poštanski broj. Otkomentirati naredbu u metodi IspišiPoštanskiBroj, pokrenuti program i testove.
-
-
+        // TODO:042 Definirati svojstvo sa string kao parametrom koje će za zadano mjesto vratiti poštanski broj.
 
     }
 
@@ -34,6 +30,7 @@ namespace Vsite.CSharp.Svojstva
 
         static void IspišiNazivMjesta(int poštanskiBroj)
         {
+            // TODO:041 Otkomentirati donju naredbu, pokrenuti program i provjeriti ispis.
             try
             {
                 //Console.WriteLine("Poštanski broj {0} ima: {1}", poštanskiBroj, pb[poštanskiBroj]);
@@ -46,6 +43,7 @@ namespace Vsite.CSharp.Svojstva
 
         static void IspišiPoštanskiBroj(string mjesto)
         {
+            // TODO:043 Otkomentirati donju naredbu, pokrenuti program i provjeriti ispis.
             try
             {
                 //Console.WriteLine("Poštanski broj za {0} je: {1}", mjesto, pb[mjesto]);
@@ -56,8 +54,7 @@ namespace Vsite.CSharp.Svojstva
             }
         }
 
-        // TODO:042 Pokrenuti testove (2 testa "TestIndekseri" moraju proći).
-
+        // TODO:044 Pokrenuti testove (2 testa "TestIndekseri" moraju proći).
         static void Main(string[] args)
         {
             IspišiNazivMjesta(21000);
