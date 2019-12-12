@@ -19,7 +19,7 @@ namespace Vsite.CSharp.Svojstva.Testovi
             Type tipOsoba = typeof(Osoba);
             PropertyInfo pi = tipOsoba.GetProperty("Prezime");
             Assert.IsNotNull(pi);
-            Assert.IsTrue(pi.GetSetMethod(true).IsFamily || pi.GetSetMethod(true).IsPrivate || !pi.CanWrite);
+            Assert.IsTrue(!pi.CanWrite || pi.GetSetMethod(true).IsFamily || pi.GetSetMethod(true).IsPrivate );
             Assert.IsTrue(pi.CanRead);
         }
 
