@@ -9,7 +9,7 @@ namespace Vsite.CSharp.Svojstva
             public Osoba(string ime, string prezime)
             {
                 this.ime = ime;
-                this.prezime = prezime;
+                this.Prezime = prezime;
             }
 
             private string prezime;
