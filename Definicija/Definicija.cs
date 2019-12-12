@@ -46,16 +46,12 @@ namespace Vsite.CSharp.Svojstva
 
 			}
 
-			// TODO:004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
-			// te iz konstruktora inicijalizirati članove bazne klase.
 			public class OsobaSPromjenivimPrezimenom : Osoba
 			{
 
 				public OsobaSPromjenivimPrezimenom(string ime, string prezime) : base(ime,prezime)
 				{ }
-
-				// TODO:005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
-				public void UdajSe(string prezimePartnera)
+			public void UdajSe(string prezimePartnera)
 				{
 					Prezime = prezimePartnera;
 				}
@@ -82,7 +78,7 @@ namespace Vsite.CSharp.Svojstva
 					o1.DatumRođenja = new DateTime(2025, 4, 13);
 					Console.WriteLine(o1.DatumRođenja.ToShortDateString());
 				}
-				catch (ArgumentOutOfRangeException e)
+				catch (ArgumentOutOfRangeException)
 				{
 
 					Console.WriteLine("Datum ne valja!");
