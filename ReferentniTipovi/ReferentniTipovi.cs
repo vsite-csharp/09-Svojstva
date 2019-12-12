@@ -10,11 +10,16 @@ namespace Vsite.CSharp.Svojstva
     {
         public class Smočnica
         {
-            // TODO:030 Promijeniti get metodu svojstva Namirnice tako da se onemogući promjena sadržaja liste izvan klase (tj. da naredbe Debug.Assert u metodi Main ne bacaju iznimke)
+            // TODO:030 Promijeniti get metodu svojstva Namirnice tako da se onemogući promjena sadržaja liste izvan klase 
+            //(tj. da naredbe Debug.Assert u metodi Main ne bacaju iznimke)
+
             public List<string> Namirnice
             {
-                get { return namirnice; }
+                get { return new List<string>(namirnice); }
             }
+            //public IEnumerable<string> Namirnice {
+            //    get => namirnice;
+            //        }
 
             private List<string> namirnice = new List<string>(new string[] { "kruh", "mlijeko" });
         }
@@ -31,7 +36,7 @@ namespace Vsite.CSharp.Svojstva
                 Console.WriteLine(a);
 
             Debug.Assert(s.Namirnice.Count() == 2);
-            Debug.Assert(s.Namirnice[1] == "mlijeko");
+          Debug.Assert(s.Namirnice[1] == "mlijeko");
 
             Console.WriteLine("GOTOVO!!!");
             Console.ReadKey(true);
