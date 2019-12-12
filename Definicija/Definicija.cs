@@ -87,7 +87,7 @@ namespace Vsite.CSharp.Svojstva
 			}
 			catch(ArgumentOutOfRangeException e)
 			{
-				Console.WriteLine("Ne valja datum");
+				Console.WriteLine(e.Message);
 			}
             
             Console.WriteLine();
