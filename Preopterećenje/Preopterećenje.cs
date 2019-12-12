@@ -6,7 +6,10 @@ namespace Vsite.CSharp.Svojstva
     class Preopterećenje
     {
         // TODO:020 Zadati svojstvo VoidSvojstvo tipa void i pokušati prevesti kod.
+        //public void VoiSvoj
+        //{
 
+        //}
 
         // svojstvo se ne može preopterećivati
 
@@ -16,7 +19,10 @@ namespace Vsite.CSharp.Svojstva
         }
 
         // TODO:021 Dodati novo svojstvo PreopterećenoSvojstvo koje će biti tipa int i pokušati prevesti kod.
-
+        //public int PreopterećenoSvojstvo
+        //{
+        //    get { return 3; }
+        //}
 
 
 
