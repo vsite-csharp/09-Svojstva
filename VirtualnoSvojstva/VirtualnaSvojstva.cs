@@ -26,8 +26,8 @@ namespace Vsite.CSharp.Svojstva
                 Godina = godina;
             }
 
-            // TODO:010 Nadglasati (overrideati) svojstvo Identifikacija tako da get metoda vraća znakovni niz oblika: "Pero, 2. godina".
-
+            // TODO:010 Nadglasati (overrideati) svojstvo Identifikacija tako da get metoda vraća znakovni niz oblika: "Pero, 5. godina".
+            public override string Identifikacija => base.Identifikacija + $", {Godina}. godina";
 
 
             public int Godina { get; set; }
