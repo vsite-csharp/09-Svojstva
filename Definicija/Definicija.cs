@@ -46,7 +46,7 @@ namespace Vsite.CSharp.Svojstva
                 set
                 {
                     if (value.Date > DateTime.Now.Date)
-                        throw new ArgumentOutOfRangeException($"{nameof(value)} must not be ...");
+                        throw new ArgumentOutOfRangeException($"{nameof(value)} must not be");
                     datumRođenja = value;
                 }
             }
@@ -93,8 +93,6 @@ namespace Vsite.CSharp.Svojstva
             o1.DatumRođenja = new DateTime(2025, 4, 13);
             Console.WriteLine(o1.DatumRođenja.ToShortDateString());
 
-            // TODO:006 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
-            // TODO:007 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
             Console.WriteLine();
             Console.WriteLine($"*** OsobaSPromjenivimPrezimenom ***");
 
