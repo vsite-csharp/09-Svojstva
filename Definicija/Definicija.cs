@@ -85,8 +85,6 @@ namespace Vsite.CSharp.Svojstva
                 Console.WriteLine(e.Message);
             }   
 
-            // TODO:006 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
-            // TODO:007 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
             Console.WriteLine();
             Console.WriteLine($"*** OsobaSPromjenivimPrezimenom ***");
 
