@@ -5,7 +5,7 @@ namespace Vsite.CSharp.Svojstva
     // ilustracija kako svojstvo ne može biti tipa void i kako se ne mogu preopterećivati 
     class Preopterećenje
     {
-
+       // public void Svoj { }
 
         // svojstvo se ne može preopterećivati
 
