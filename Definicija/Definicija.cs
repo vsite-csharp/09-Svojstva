@@ -52,8 +52,6 @@ namespace Vsite.CSharp.Svojstva
             //public string Prezime;
             public OsobaSPromjenivimPrezimenom(string ime, string prezime) : base(ime,prezime)
             { }
-
-            // TODO:005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
             public void UdajSe(string prezimePartnera)
             {
                 Prezime = prezimePartnera;
