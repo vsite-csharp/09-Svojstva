@@ -56,8 +56,7 @@ namespace Vsite.CSharp.Svojstva
 
         }
 
-        // TODO:004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
-        // te iz konstruktora inicijalizirati članove bazne klase.
+       
         public class OsobaSPromjenivimPrezimenom:Osoba
         {
             
@@ -65,7 +64,7 @@ namespace Vsite.CSharp.Svojstva
             public OsobaSPromjenivimPrezimenom(string ime, string prezime) :base(ime, prezime)
             { }
 
-            // TODO:005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
+           
             public void UdajSe(string prezimePartnera)
             {
                 Prezime = prezimePartnera;
@@ -75,7 +74,7 @@ namespace Vsite.CSharp.Svojstva
 
         static void Main(string[] args)
         {
-            // TODO:003 Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
+            
 
             Console.WriteLine("*** Osoba ***");
 
