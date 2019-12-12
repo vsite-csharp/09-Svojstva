@@ -13,7 +13,8 @@ namespace Vsite.CSharp.Svojstva
             }
 
             //dole su promjene u zadatku
-            public string Prezime { get; protected set;
+            public string Prezime { 
+                get; protected set;
                 //set { prezime = value; } //bez set metode neće biti pozvati  
             }
 
@@ -61,10 +62,10 @@ namespace Vsite.CSharp.Svojstva
         // TODO:004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, 
         //ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
         // te iz konstruktora inicijalizirati članove bazne klase.
-        public class OsobaSPromjenivimPrezimenom :Osoba
-        {
-            public class OsobaSPromjenivimPrezimenom(string ime, string prezime):base(ime, prezime)
-                {        }
+        //public class OsobaSPromjenivimPrezimenom :Osoba
+        //{
+        //    public class OsobaSPromjenivimPrezimenom(string ime, string prezime) : base(ime, prezime);
+        //        {}
                
         // TODO:005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
         public void UdajSe(string prezimePartnera)
@@ -100,18 +101,7 @@ namespace Vsite.CSharp.Svojstva
             {
                 Console.WriteLine(e.Message);
             }
-           /*Nakon pokretanja programa:002 i 003
-            * *** Osoba ***
-                Oliver Mlakar
-                13.4.1933.
-                Pero Mlakar
-                Specified argument was out of the range of valid values.
-                Parameter name: value must not be...
-
-                *** OsobaSPromjenivimPrezimenom ***
-                Prije udaje:
-                Nakon udaje:
-                GOTOVO!!!*/
+          
 
             // TODO:006 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
 
