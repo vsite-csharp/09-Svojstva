@@ -16,7 +16,10 @@ namespace Vsite.CSharp.Svojstva
         }
 
         // TODO:021 Dodati novo svojstvo PreopterećenoSvojstvo koje će biti tipa int i pokušati prevesti kod.
-
+        /*public int PreopterecenoSvojstvo
+        {
+            get { return 3; }
+        }*/
 
 
 
