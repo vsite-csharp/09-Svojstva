@@ -18,13 +18,26 @@ namespace Vsite.CSharp.Svojstva
             { 51000, "Rijeka" }
         };
 
-        // TODO:040 Definirati svojstvo s int kao parametrom koje će za zadani poštanski broj vratiti mjesto. Otkomentirati naredbu u metodi IspišiNazivMjesta, pokrenuti program i testove.
+        public string this[int index]
+        {
+            get
+            {
+               return popis[index];
+            }
+        }
 
 
 
-        // TODO:041 Definirati svojstvo sa string kao parametrom koje će za zadano mjesto vratiti poštanski broj. Otkomentirati naredbu u metodi IspišiPoštanskiBroj, pokrenuti program i testove.
-
-
+        public int this[string index]
+        {
+            get
+            {
+                if (popis.ContainsValue(index))
+                    return popis.FirstOrDefault(x => x.Value == index).Key;
+                else
+                    throw new Exception($"{index} does not exist in dictionary.");
+            }
+        }
 
     }
 
@@ -36,7 +49,7 @@ namespace Vsite.CSharp.Svojstva
         {
             try
             {
-                //Console.WriteLine("Poštanski broj {0} ima: {1}", poštanskiBroj, pb[poštanskiBroj]);
+                Console.WriteLine("Poštanski broj {0} ima: {1}", poštanskiBroj, pb[poštanskiBroj]);
             }
             catch (System.Exception e)
             {
@@ -48,7 +61,7 @@ namespace Vsite.CSharp.Svojstva
         {
             try
             {
-                //Console.WriteLine("Poštanski broj za {0} je: {1}", mjesto, pb[mjesto]);
+                Console.WriteLine("Poštanski broj za {0} je: {1}", mjesto, pb[mjesto]);
             }
             catch (System.Exception e)
             {
