@@ -69,8 +69,6 @@ namespace Vsite.CSharp.Svojstva
             }
         }
 
-        // TODO:042 Pokrenuti testove (2 testa "TestIndekseri" moraju proći).
-
         static void Main(string[] args)
         {
             IspišiNazivMjesta(21000);
