@@ -18,13 +18,25 @@ namespace Vsite.CSharp.Svojstva
             { 51000, "Rijeka" }
         };
 
-        // TODO:040 Definirati svojstvo s int kao parametrom koje će za zadani poštanski broj vratiti mjesto. Otkomentirati naredbu u metodi IspišiNazivMjesta, pokrenuti program i testove.
 
+        public string this[int br]
+        {
+            get
+            {
+                return popis[br];
+            }
+        }
 
-
-        // TODO:041 Definirati svojstvo sa string kao parametrom koje će za zadano mjesto vratiti poštanski broj. Otkomentirati naredbu u metodi IspišiPoštanskiBroj, pokrenuti program i testove.
-
-
+        public int this[string br]
+        {
+            get
+            {
+                if (popis.ContainsValue(br))
+                    return popis.FirstOrDefault(x => x.Value == br).Key;
+                else
+                    throw new Exception($"{br} does not exist in dictionary.");
+            }
+        }
 
     }
 
@@ -36,19 +48,20 @@ namespace Vsite.CSharp.Svojstva
         {
             try
             {
-                //Console.WriteLine("Poštanski broj {0} ima: {1}", poštanskiBroj, pb[poštanskiBroj]);
+                Console.WriteLine("Poštanski broj {0} ima: {1}", poštanskiBroj, pb[poštanskiBroj]);
             }
             catch (System.Exception e)
             {
                 Console.WriteLine(e.Message);
             }
+            
         }
 
         static void IspišiPoštanskiBroj(string mjesto)
         {
             try
             {
-                //Console.WriteLine("Poštanski broj za {0} je: {1}", mjesto, pb[mjesto]);
+                Console.WriteLine("Poštanski broj za {0} je: {1}", mjesto, pb[mjesto]);
             }
             catch (System.Exception e)
             {
@@ -56,7 +69,6 @@ namespace Vsite.CSharp.Svojstva
             }
         }
 
-        // TODO:042 Pokrenuti testove (2 testa "TestIndekseri" moraju proći).
 
         static void Main(string[] args)
         {
