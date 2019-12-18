@@ -19,12 +19,17 @@ namespace Vsite.CSharp.Svojstva
         };
 
         // TODO:040 Definirati svojstvo s int kao parametrom koje će za zadani poštanski broj vratiti mjesto. Otkomentirati naredbu u metodi IspišiNazivMjesta, pokrenuti program i testove.
-
+        public string this[int index]
+        {
+            get { return popis[index]; }
+        }
 
 
         // TODO:041 Definirati svojstvo sa string kao parametrom koje će za zadano mjesto vratiti poštanski broj. Otkomentirati naredbu u metodi IspišiPoštanskiBroj, pokrenuti program i testove.
-
-
+        public int this[string index]
+        {
+            get { return popis.FirstOrDefault(itm => itm.Value == index).Key; }
+        }
 
     }
 
