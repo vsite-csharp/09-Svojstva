@@ -10,15 +10,15 @@ namespace Vsite.CSharp.Svojstva
     {
         public class Smočnica
         {
-            // public List<string> Namirnice
-            // {
-            //     get { return new List<string>(namirnice); }
-            // }
-
-            public IEnumerable<string> Namirnice
+            public List<string> Namirnice
             {
-                get => namirnice;
+                get { return new List<string>(namirnice); }
             }
+
+            // public IEnumerable<string> Namirnice
+            // {
+                // get => namirnice;
+            // }
 
             private List<string> namirnice = new List<string>(new string[] { "kruh", "mlijeko" });
         }
