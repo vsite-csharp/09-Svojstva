@@ -62,6 +62,7 @@ namespace Vsite.CSharp.Svojstva
 
             public OsobaSPromjenivimPrezimenom(string ime, string prezime) : base(ime, prezime)
             {
+
             }
 
 
@@ -72,7 +73,7 @@ namespace Vsite.CSharp.Svojstva
             // TODO:006 Napisati unutar metode UdajSe kod kojim se mijenja prezime osobe.
             public void UdajSe(string prezimePartnera)
             {
-            prezimePartnera = prezimePartnera;
+                Prezime = prezimePartnera;
             }
         }
 
