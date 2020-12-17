@@ -12,12 +12,12 @@ namespace Vsite.CSharp.Svojstva
                 Prezime = prezime;
             }
 
-            // TODO:000 Javno dostupno polje Prezime nadomjestiti svojstvom (property) koje se izvan klase može samo čitati, a mijenjati se može samo iz klase.
+            // Javno dostupno polje Prezime nadomjestiti svojstvom (property) koje se izvan klase može samo čitati, a mijenjati se može samo iz klase.
 
             public string Prezime { get; protected set; }
 
 
-            // TODO:001 Javno dostupno polje Ime nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali prilikom zadavanja treba onemogućiti
+            // Javno dostupno polje Ime nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali prilikom zadavanja treba onemogućiti
             // zadavanje nul-referencom ili praznim znakovnim nizom. U tim slučajevima treba baciti iznimke tipa ArgumentNullException, odnosno ArgumentException.
             private string ime;
             public string Ime {
@@ -34,7 +34,7 @@ namespace Vsite.CSharp.Svojstva
 
 
 
-            // TODO:002 Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
+            // Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
             // datuma većeg od trenutnog treba baciti iznimku tipa ArgumentOutOfRangeException. U pozivajućem kodu staviti odgovarajući kod za hvatanje
             // iznimke koji će u slučaju iznimke ispisati odgovarajuću poruku.
             private DateTime datumRođenja;
@@ -52,7 +52,7 @@ namespace Vsite.CSharp.Svojstva
 
         }
 
-        // TODO:004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
+        // Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
         // te iz konstruktora inicijalizirati članove bazne klase.
         public class OsobaSPromjenivimPrezimenom: Osoba
         {
@@ -62,8 +62,8 @@ namespace Vsite.CSharp.Svojstva
             public OsobaSPromjenivimPrezimenom(string ime, string prezime): base(ime, prezime)
             { }
 
-            // TODO:005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
-            // TODO:006 Napisati unutar metode UdajSe kod kojim se mijenja prezime osobe.
+            // Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
+            // Napisati unutar metode UdajSe kod kojim se mijenja prezime osobe.
             public void UdajSe(string prezimePartnera)
             {
                 Prezime = prezimePartnera;
@@ -73,7 +73,7 @@ namespace Vsite.CSharp.Svojstva
 
         static void Main(string[] args)
         {
-            // TODO:003 Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
+            // Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
 
             Console.WriteLine("*** Osoba ***");
 
@@ -90,8 +90,8 @@ namespace Vsite.CSharp.Svojstva
             o1.DatumRođenja = new DateTime(2025, 4, 13);
             Console.WriteLine(o1.DatumRođenja.ToShortDateString());
 
-            // TODO:007 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
-            // TODO:008 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
+            // Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
+            // Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
             Console.WriteLine();
             Console.WriteLine($"*** OsobaSPromjenivimPrezimenom ***");
 
