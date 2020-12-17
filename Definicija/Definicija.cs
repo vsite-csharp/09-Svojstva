@@ -89,8 +89,8 @@ namespace Vsite.CSharp.Svojstva
             o1.DatumRođenja = new DateTime(2025, 4, 13);
             Console.WriteLine(o1.DatumRođenja.ToShortDateString());
 
-            // TODO:007 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
-            // TODO:008 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
+            // Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
+            // Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
             Console.WriteLine();
             Console.WriteLine($"*** OsobaSPromjenivimPrezimenom ***");
 
