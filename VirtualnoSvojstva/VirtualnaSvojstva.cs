@@ -26,7 +26,7 @@ namespace Vsite.CSharp.Svojstva
                 Godina = godina;
             }
 
-            public override string Identifikacija => "Pero, 3. godina";
+            public override string Identifikacija => base.Identifikacija + ", " + Godina + ". godina";
 
 
 
