@@ -8,10 +8,10 @@ namespace Vsite.CSharp.Svojstva
         {
             get { return 3; }
         }
-        public double PreopterećenoSvojstvo
-        {
-            get { return Math.PI; }
-        }
+       // public double PreopterećenoSvojstvo
+       // {
+       //     get { return Math.PI; }
+       // }
 
 
         static void Main(string[] args)
