@@ -18,9 +18,18 @@ namespace Vsite.CSharp.Svojstva
             { 51000, "Rijeka" }
         };
 
-        // TODO:040 Definirati svojstvo s int kao parametrom koje će za zadani poštanski broj vratiti mjesto.
+        //  Definirati svojstvo s int kao parametrom koje će za zadani poštanski broj vratiti mjesto.
+        public string this[int poštanskibroj]
+        {
+            get => popis[poštanskibroj];
+        }
 
-        // TODO:042 Definirati svojstvo sa string kao parametrom koje će za zadano mjesto vratiti poštanski broj.
+        // Definirati svojstvo sa string kao parametrom koje će za zadano mjesto vratiti poštanski broj.
+        public int this[string mjesto]
+        {
+            get => popis.First(ključVrijednost => ključVrijednost.Value == mjesto).Key;
+        }
+
 
     }
 
@@ -33,7 +42,7 @@ namespace Vsite.CSharp.Svojstva
             // TODO:041 Otkomentirati donju naredbu, pokrenuti program i provjeriti ispis.
             try
             {
-                //Console.WriteLine("Poštanski broj {0} ima: {1}", poštanskiBroj, pb[poštanskiBroj]);
+                Console.WriteLine("Poštanski broj {0} ima: {1}", poštanskiBroj, pb[poštanskiBroj]);
             }
             catch (System.Exception e)
             {
@@ -43,10 +52,10 @@ namespace Vsite.CSharp.Svojstva
 
         static void IspišiPoštanskiBroj(string mjesto)
         {
-            // TODO:043 Otkomentirati donju naredbu, pokrenuti program i provjeriti ispis.
+            //  Otkomentirati donju naredbu, pokrenuti program i provjeriti ispis.
             try
             {
-                //Console.WriteLine("Poštanski broj za {0} je: {1}", mjesto, pb[mjesto]);
+                Console.WriteLine("Poštanski broj za {0} je: {1}", mjesto, pb[mjesto]);
             }
             catch (System.Exception e)
             {
