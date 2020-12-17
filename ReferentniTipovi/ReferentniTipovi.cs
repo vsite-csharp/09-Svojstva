@@ -10,7 +10,7 @@ namespace Vsite.CSharp.Svojstva
     {
         public class Smočnica
         {
-            // TODO:031 Promijeniti get metodu svojstva Namirnice tako da se onemogući promjena sadržaja liste izvan klase (tj. da naredbe Debug.Assert u metodi Main ne bacaju iznimke)
+            // Promijeniti get metodu svojstva Namirnice tako da se onemogući promjena sadržaja liste izvan klase (tj. da naredbe Debug.Assert u metodi Main ne bacaju iznimke)
             public List<string> Namirnice
             {
                 get { return new List<string>(namirnice); }
