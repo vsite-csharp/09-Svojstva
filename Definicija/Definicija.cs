@@ -49,8 +49,6 @@ namespace Vsite.CSharp.Svojstva
             public OsobaSPromjenivimPrezimenom(string ime, string prezime) : base(ime, prezime)
             { }
 
-            // TODO:005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
-            // TODO:006 Napisati unutar metode UdajSe kod kojim se mijenja prezime osobe.
             public void UdajSe(string prezimePartnera)
             {
                 Prezime = prezimePartnera;
@@ -75,8 +73,6 @@ namespace Vsite.CSharp.Svojstva
             o1.DatumRođenja = new DateTime(2019, 4, 13);
             Console.WriteLine(o1.DatumRođenja.ToShortDateString());
 
-            // TODO:007 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
-            // TODO:008 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
             Console.WriteLine();
             Console.WriteLine($"*** OsobaSPromjenivimPrezimenom ***");
 
