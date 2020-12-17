@@ -11,7 +11,8 @@ namespace Vsite.CSharp.Svojstva
         {
             get { return Math.PI; }
         }
-        // TODO:021 Dodati novo svojstvo PreopterećenoSvojstvo koje će biti tipa int i pokušati prevesti kod.
+        // Dodati novo svojstvo PreopterećenoSvojstvo koje će biti tipa int i pokušati prevesti kod.
+        {
 
 
         static void Main(string[] args)
