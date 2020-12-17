@@ -29,7 +29,7 @@ namespace Vsite.CSharp.Svojstva
             // ++TODO:010 Nadglasati (overrideati) svojstvo Identifikacija tako da get metoda vraća znakovni niz oblika: "Pero, 2. godina".
             public override string Identifikacija
             {
-                get => $"{base.Identifikacija },{Godina}. godina ";
+                get => $"{base.Identifikacija }, {Godina}. godina";
             }
 
             public int Godina { get; set; }
@@ -37,7 +37,7 @@ namespace Vsite.CSharp.Svojstva
 
         // ++TODO:011 Pokrenuti program i provjeriti ispis.
 
-        // TODO:012 Pokrenuti testove (test u grupi "TestVirtualnogSvojstva" mora proći).
+        // ++TODO:012 Pokrenuti testove (test u grupi "TestVirtualnogSvojstva" mora proći).
 
         static void Main(string[] args)
         {
