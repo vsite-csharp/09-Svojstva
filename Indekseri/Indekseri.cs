@@ -18,10 +18,16 @@ namespace Vsite.CSharp.Svojstva
             { 51000, "Rijeka" }
         };
 
-        // TODO:040 Definirati svojstvo s int kao parametrom koje će za zadani poštanski broj vratiti mjesto.
-
-        // TODO:042 Definirati svojstvo sa string kao parametrom koje će za zadano mjesto vratiti poštanski broj.
-
+        // Definirati svojstvo s int kao parametrom koje će za zadani poštanski broj vratiti mjesto.
+        public string this [int poštanskiBroj]
+        {
+            get => popis[poštanskiBroj];
+        }
+        // Definirati svojstvo sa string kao parametrom koje će za zadano mjesto vratiti poštanski broj.
+        public int this[string mjesto]
+        {
+            get => popis.First(ključVrijednost => ključVrijednost.Value == mjesto).Key;
+        }
     }
 
     class Indekseri
