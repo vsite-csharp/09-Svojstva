@@ -23,31 +23,35 @@ namespace Vsite.CSharp.Svojstva
         {
             public Student(string ime, int godina) : base(ime)
             {
-                Godina = godina;
+                //Godina = godina;
             }
 
             // TODO:010 Nadglasati (overrideati) svojstvo Identifikacija tako da get metoda vraća znakovni niz oblika: "Pero, 2. godina".
-
-
-
-            public int Godina { get; set; }
+            //public override string Identifikacija
+            //{
+                //get => $"{base.Identifikacija}; {Godina}. godina" ;
+            }
+    }
         }
+
+           // public int Godina { get; set; }
+        //}
 
         // TODO:011 Pokrenuti program i provjeriti ispis.
 
         // TODO:012 Pokrenuti testove (test u grupi "TestVirtualnogSvojstva" mora proći).
 
-        static void Main(string[] args)
-        {
-            Osoba o = new Osoba("Janko");
-            Console.WriteLine(o.Identifikacija);
+        //static void Main(string[] args)
+        //{
+            //Osoba o = new Osoba("Janko");
+            //Console.WriteLine(o.Identifikacija);
 
-            Student s = new Student("Pero", 5);
-            Debug.Assert(s.Identifikacija == "Pero, 5. godina");
-            Console.WriteLine(s.Identifikacija);
+            //Student s = new Student("Pero", 5);
+            //Debug.Assert(s.Identifikacija == "Pero, 5. godina");
+            //Console.WriteLine(s.Identifikacija);
 
-            Console.WriteLine("GOTOVO!!!");
-            Console.ReadKey(true);
-        }
-    }
-}
+            //Console.WriteLine("GOTOVO!!!");
+            //Console.ReadKey(true);
+        //}
+    //}
+//}
