@@ -36,9 +36,9 @@ namespace Vsite.CSharp.Svojstva
             public int Godina { get; set; }
         }
 
-        // TODO:011 Pokrenuti program i provjeriti ispis.
+        // Pokrenuti program i provjeriti ispis.
 
-        // TODO:012 Pokrenuti testove (test u grupi "TestVirtualnogSvojstva" mora proći).
+        // Pokrenuti testove (test u grupi "TestVirtualnogSvojstva" mora proći).
 
         static void Main(string[] args)
         {
