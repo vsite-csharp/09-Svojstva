@@ -36,7 +36,7 @@ namespace Vsite.CSharp.Svojstva
 
         static void IspišiNazivMjesta(int poštanskiBroj)
         {
-            // TODO:041 Otkomentirati donju naredbu, pokrenuti program i provjeriti ispis.
+            // Otkomentirati donju naredbu, pokrenuti program i provjeriti ispis.
             try
             {
                 //Console.WriteLine("Poštanski broj {0} ima: {1}", poštanskiBroj, pb[poštanskiBroj]);
@@ -49,7 +49,7 @@ namespace Vsite.CSharp.Svojstva
 
         static void IspišiPoštanskiBroj(string mjesto)
         {
-            // TODO:043 Otkomentirati donju naredbu, pokrenuti program i provjeriti ispis.
+            // Otkomentirati donju naredbu, pokrenuti program i provjeriti ispis.
             try
             {
                 //Console.WriteLine("Poštanski broj za {0} je: {1}", mjesto, pb[mjesto]);
@@ -60,7 +60,7 @@ namespace Vsite.CSharp.Svojstva
             }
         }
 
-        // TODO:044 Pokrenuti testove (2 testa "TestIndekseri" moraju proći).
+        // Pokrenuti testove (2 testa "TestIndekseri" moraju proći).
         static void Main(string[] args)
         {
             IspišiNazivMjesta(21000);
