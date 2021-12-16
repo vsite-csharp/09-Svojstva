@@ -12,46 +12,72 @@ namespace Vsite.CSharp.Svojstva
                 Prezime = prezime;
             }
 
-            // TODO:000 Javno dostupno polje Prezime nadomjestiti svojstvom (property) koje se izvan klase može samo čitati, a mijenjati se može samo iz klase.
+            //000 Javno dostupno polje Prezime nadomjestiti svojstvom (property) koje se izvan klase može samo čitati, a mijenjati se može samo iz klase.
 
-            public string Prezime;
+            public string Prezime
+            {
+                get;
+                protected set;
+            }
 
 
-            // TODO:001 Javno dostupno polje Ime nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali prilikom zadavanja treba onemogućiti
+            // 001 Javno dostupno polje Ime nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali prilikom zadavanja treba onemogućiti
             // zadavanje nul-referencom ili praznim znakovnim nizom. U tim slučajevima treba baciti iznimke tipa ArgumentNullException, odnosno ArgumentException.
+            private string ime;
+           
+            public string Ime
+            {
+                get => ime;
+                set
+                {
+                    if (value == null)
+                        throw new ArgumentException(nameof(Ime));
+                    if (value.Trim().Length == 0)
+                        throw new ArgumentException("Ime ne smije biti prazno",nameof(Ime));
+                    ime = value;
+                }
+            }
 
-            public string Ime;
 
-
-            // TODO:002 Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
+            // 002 Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
             // datuma većeg od trenutnog treba baciti iznimku tipa ArgumentOutOfRangeException. U pozivajućem kodu staviti odgovarajući kod za hvatanje
             // iznimke koji će u slučaju iznimke ispisati odgovarajuću poruku.
+            public DateTime datumRođenja;
+            public DateTime DatumRođenja
+            {
+                get => datumRođenja;
+                set
+                {
+                    //todo
+                }
+            }
 
-            public DateTime DatumRođenja;
+
 
         }
 
-        // TODO:004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
+        // 004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
         // te iz konstruktora inicijalizirati članove bazne klase.
-        public class OsobaSPromjenivimPrezimenom
+        public class OsobaSPromjenivimPrezimenom : Osoba
         {
-            public string Ime;
-            public string Prezime;
+            //public string Ime;
+            //public string Prezime;
 
-            public OsobaSPromjenivimPrezimenom(string ime, string prezime)
+            public OsobaSPromjenivimPrezimenom(string ime, string prezime):base(ime,prezime)
             { }
 
-            // TODO:005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
-            // TODO:006 Napisati unutar metode UdajSe kod kojim se mijenja prezime osobe.
+            //005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
+            //006 Napisati unutar metode UdajSe kod kojim se mijenja prezime osobe.
             public void UdajSe(string prezimePartnera)
             {
+                Prezime = prezimePartnera;
             }
         }
 
 
         static void Main(string[] args)
         {
-            // TODO:003 Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
+            // 003 Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
 
             Console.WriteLine("*** Osoba ***");
 
@@ -62,7 +88,7 @@ namespace Vsite.CSharp.Svojstva
             Console.WriteLine(o1.DatumRođenja.ToShortDateString());
 
             o1.Ime = "Pero";
-            o1.Prezime = "Kvrgić";
+            //o1.Prezime = "Kvrgić";
             Console.WriteLine($"{o1.Ime} {o1.Prezime}");
 
             o1.DatumRođenja = new DateTime(2025, 4, 13);
