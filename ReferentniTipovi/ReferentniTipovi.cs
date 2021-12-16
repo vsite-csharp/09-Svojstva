@@ -41,7 +41,7 @@ namespace Vsite.CSharp.Svojstva
 
             // provjeravamo je li se sadržaj smočnice promijenio:
             Debug.Assert(s.Namirnice.Count() == 2);
-            //Debug.Assert(s.Namirnice[1] == "mlijeko");
+            Debug.Assert(s.Namirnice.ElementAt(1) == "mlijeko");
 
             Console.WriteLine("GOTOVO!!!");
             Console.ReadKey(true);
