@@ -10,9 +10,11 @@ namespace Vsite.CSharp.Svojstva
             get { return Math.PI; }
         }
 
-        // TODO:020 Zadati svojstvo VoidSvojstvo tipa void i pokušati prevesti kod.
+        // Zadati svojstvo VoidSvojstvo tipa void i pokušati prevesti kod. -> nema što vraćati ni postavljati
+        //public void VoidSvojstvo { get; set; }
 
-        // TODO:021 Dodati novo svojstvo PreopterećenoSvojstvo koje će biti tipa int i pokušati prevesti kod.
+        // Dodati novo svojstvo PreopterećenoSvojstvo koje će biti tipa int i pokušati prevesti kod. -> nema argument
+        //public int PreopterećenoSvojstvo { get; set; }
 
         static void Main(string[] args)
         {
