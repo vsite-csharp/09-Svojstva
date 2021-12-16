@@ -3,6 +3,7 @@
 namespace Vsite.CSharp.Svojstva
 {
     // ilustracija kako svojstvo ne može biti tipa void i kako se ne mogu preopterećivati 
+    // kad preopterecuejmo metodu kompajler prepoznaje po tipu argumenata, a svojstva nemaju argumente
     class Preopterećenje
     {
         public double PreopterećenoSvojstvo
@@ -11,6 +12,7 @@ namespace Vsite.CSharp.Svojstva
         }
 
         // TODO:020 Zadati svojstvo VoidSvojstvo tipa void i pokušati prevesti kod.
+        // void PreopterećenoSvojstvo
 
         // TODO:021 Dodati novo svojstvo PreopterećenoSvojstvo koje će biti tipa int i pokušati prevesti kod.
 
