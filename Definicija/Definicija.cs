@@ -53,59 +53,59 @@ namespace Vsite.CSharp.Svojstva
                 }
             }
 
+        }
 
+        // :004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
+        // te iz konstruktora inicijalizirati članove bazne klase.
+        public class OsobaSPromjenivimPrezimenom : Osoba
+        {
+            //public string Ime;
+            //public string Prezime;
 
-            // :004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
-            // te iz konstruktora inicijalizirati članove bazne klase.
-            public class OsobaSPromjenivimPrezimenom : Osoba
+            public OsobaSPromjenivimPrezimenom(string ime, string prezime) : base(ime, prezime)
+            { }
+
+            // TODO:005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
+            // TODO:006 Napisati unutar metode UdajSe kod kojim se mijenja prezime osobe.
+            public void UdajSe(string prezimePartnera)
             {
-                //public string Ime;
-                //public string Prezime;
-
-                public OsobaSPromjenivimPrezimenom(string ime, string prezime) : base(ime, prezime)
-                { }
-
-                // TODO:005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
-                // TODO:006 Napisati unutar metode UdajSe kod kojim se mijenja prezime osobe.
-                public void UdajSe(string prezimePartnera)
-                {
-                    Prezime = prezimePartnera;
-                }
+                Prezime = prezimePartnera;
             }
+        }
 
 
-            static void Main(string[] args)
-            {
-                // :003 Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
+        static void Main(string[] args)
+        {
+            // :003 Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
 
-                Console.WriteLine("*** Osoba ***");
+            Console.WriteLine("*** Osoba ***");
 
-                Osoba o1 = new Osoba("Oliver", "Mlakar");
-                Console.WriteLine($"{o1.Ime} {o1.Prezime}");
+            Osoba o1 = new Osoba("Oliver", "Mlakar");
+            Console.WriteLine($"{o1.Ime} {o1.Prezime}");
 
-                o1.DatumRođenja = new DateTime(1933, 4, 13);
-                Console.WriteLine(o1.DatumRođenja.ToShortDateString());
+            o1.DatumRođenja = new DateTime(1933, 4, 13);
+            Console.WriteLine(o1.DatumRođenja.ToShortDateString());
 
-                o1.Ime = "Pero";
-                //o1.Prezime = "Kvrgić";
-                Console.WriteLine($"{o1.Ime} {o1.Prezime}");
+            o1.Ime = "Pero";
+            //o1.Prezime = "Kvrgić";
+            Console.WriteLine($"{o1.Ime} {o1.Prezime}");
 
-                o1.DatumRođenja = new DateTime(2025, 4, 13);
-                Console.WriteLine(o1.DatumRođenja.ToShortDateString());
+            o1.DatumRođenja = new DateTime(2025, 4, 13);
+            Console.WriteLine(o1.DatumRođenja.ToShortDateString());
 
-                // :007 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
-                // :008 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
-                Console.WriteLine();
-                Console.WriteLine($"*** OsobaSPromjenivimPrezimenom ***");
+            // :007 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
+            // :008 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
+            Console.WriteLine();
+            Console.WriteLine($"*** OsobaSPromjenivimPrezimenom ***");
 
-                OsobaSPromjenivimPrezimenom o2 = new OsobaSPromjenivimPrezimenom("Nives", "Celzius");
-                Console.WriteLine($"Prije udaje: {o2.Ime} {o2.Prezime}");
-                o2.UdajSe("Fahrenheit");
-                Console.WriteLine($"Nakon udaje: {o2.Ime} {o2.Prezime}");
+            OsobaSPromjenivimPrezimenom o2 = new OsobaSPromjenivimPrezimenom("Nives", "Celzius");
+            Console.WriteLine($"Prije udaje: {o2.Ime} {o2.Prezime}");
+            o2.UdajSe("Fahrenheit");
+            Console.WriteLine($"Nakon udaje: {o2.Ime} {o2.Prezime}");
 
-                Console.WriteLine("GOTOVO!!!");
-                Console.ReadKey(true);
-            }
+            Console.WriteLine("GOTOVO!!!");
+            Console.ReadKey(true);
         }
     }
 }
+
