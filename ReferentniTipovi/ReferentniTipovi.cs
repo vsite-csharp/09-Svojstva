@@ -10,11 +10,14 @@ namespace Vsite.CSharp.Svojstva
     {
         public class Smočnica
         {
-            // TODO:031 Promijeniti get metodu svojstva Namirnice tako da se onemogući promjena sadržaja liste izvan klase (tj. da naredbe Debug.Assert u metodi Main ne bacaju iznimke)
-            public List<string> Namirnice
-            {
-                get { return namirnice; }
-            }
+            // :031 Promijeniti get metodu svojstva Namirnice tako da se onemogući promjena sadržaja liste izvan klase (tj. da naredbe Debug.Assert u metodi Main ne bacaju iznimke)
+            //public List<string> Namirnice
+           // {
+                //get { return namirnice; }
+               // get { return new List<string>(namirnice); }
+           // }
+
+            public IEnumerable<string> Namirnice => namirnice;
 
             private List<string> namirnice = new List<string>(new string[] { "kruh", "mlijeko" });
         }
@@ -29,9 +32,9 @@ namespace Vsite.CSharp.Svojstva
                 Console.WriteLine(a);
             Console.WriteLine();
 
-            s.Namirnice.Add("špek"); // dodajemo u smočnicu
+            //s.Namirnice.Add("špek"); // dodajemo u smočnicu
 
-            s.Namirnice[1] = "jogurt"; // mlijeko se zakiselilo
+            //s.Namirnice[1] = "jogurt"; // mlijeko se zakiselilo
 
             Console.WriteLine("Novi sadržaj smočnice:");
             foreach (var a in s.Namirnice)
@@ -39,7 +42,7 @@ namespace Vsite.CSharp.Svojstva
 
             // provjeravamo je li se sadržaj smočnice promijenio:
             Debug.Assert(s.Namirnice.Count() == 2);
-            Debug.Assert(s.Namirnice[1] == "mlijeko");
+            Debug.Assert(s.Namirnice.ElementAt(1) == "mlijeko");
 
             Console.WriteLine("GOTOVO!!!");
             Console.ReadKey(true);
