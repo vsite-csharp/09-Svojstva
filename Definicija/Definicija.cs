@@ -27,7 +27,7 @@ namespace Vsite.CSharp.Svojstva
             public string Ime
             {
                 get => ime;
-                private set
+                set
                 {
                     if (value == null)
                         throw new ArgumentNullException(nameof(Ime));

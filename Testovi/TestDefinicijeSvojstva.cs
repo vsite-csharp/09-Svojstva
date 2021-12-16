@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Reflection;
+using NUnit.Framework.Internal;
 
 namespace Vsite.CSharp.Svojstva.Testovi
 {
