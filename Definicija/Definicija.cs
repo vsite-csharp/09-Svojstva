@@ -20,20 +20,20 @@ namespace Vsite.CSharp.Svojstva
                 private set;
             }
 
-            // TODO:001 Javno dostupno polje Ime nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali prilikom zadavanja treba onemogućiti
+            // 001 Javno dostupno polje Ime nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali prilikom zadavanja treba onemogućiti
             // zadavanje nul-referencom ili praznim znakovnim nizom. U tim slučajevima treba baciti iznimke tipa ArgumentNullException, odnosno ArgumentException.
             private string ime;
             
             public string Ime { 
             
-                get { return Ime; }
+                get { return ime; }
                 set { 
                 
                     if (value == null)
                         throw new ArgumentNullException(nameof(value), $"Vrijednost {nameof(Ime)} ne smije biti null referenca");
                     if (value == string.Empty)
                         throw new ArgumentException($"Vrijednost {nameof(Ime)} ne smije biti prazan string", nameof(value));
-                    Ime = value;
+                    ime = value;
                 }
             }
 
@@ -41,8 +41,17 @@ namespace Vsite.CSharp.Svojstva
             // datuma većeg od trenutnog treba baciti iznimku tipa ArgumentOutOfRangeException. U pozivajućem kodu staviti odgovarajući kod za hvatanje
             // iznimke koji će u slučaju iznimke ispisati odgovarajuću poruku.
 
-            public DateTime DatumRođenja;
+            private DateTime datumRođenja;
 
+            public DateTime DatumRođenja
+            {
+                get => datumRođenja;
+                set
+                {
+                    datumRođenja = value.Date > DateTime.Now.Date ?
+                throw new ArgumentOutOfRangeException(nameof(value), $"{nameof(DatumRođenja)} mora biti manji od današnjeg datuma") : value;
+                }
+            }
         }
 
         // TODO:004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
