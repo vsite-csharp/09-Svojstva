@@ -12,16 +12,30 @@ namespace Vsite.CSharp.Svojstva
                 Prezime = prezime;
             }
 
-            // TODO:000 Javno dostupno polje Prezime nadomjestiti svojstvom (property) koje se izvan klase može samo čitati, a mijenjati se može samo iz klase.
+            // 000 Javno dostupno polje Prezime nadomjestiti svojstvom (property) koje se izvan klase može samo čitati, a mijenjati se može samo iz klase.
 
-            public string Prezime;
-
+            public string Prezime
+            {
+                get; 
+                private set;
+            }
 
             // TODO:001 Javno dostupno polje Ime nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali prilikom zadavanja treba onemogućiti
             // zadavanje nul-referencom ili praznim znakovnim nizom. U tim slučajevima treba baciti iznimke tipa ArgumentNullException, odnosno ArgumentException.
-
-            public string Ime;
-
+            private string ime;
+            
+            public string Ime { 
+            
+                get { return Ime; }
+                set { 
+                
+                    if (value == null)
+                        throw new ArgumentNullException(nameof(value), $"Vrijednost {nameof(Ime)} ne smije biti null referenca");
+                    if (value == string.Empty)
+                        throw new ArgumentException($"Vrijednost {nameof(Ime)} ne smije biti prazan string", nameof(value));
+                    Ime = value;
+                }
+            }
 
             // TODO:002 Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
             // datuma većeg od trenutnog treba baciti iznimku tipa ArgumentOutOfRangeException. U pozivajućem kodu staviti odgovarajući kod za hvatanje
@@ -62,7 +76,7 @@ namespace Vsite.CSharp.Svojstva
             Console.WriteLine(o1.DatumRođenja.ToShortDateString());
 
             o1.Ime = "Pero";
-            o1.Prezime = "Kvrgić";
+            //o1.Prezime = "Kvrgić";
             Console.WriteLine($"{o1.Ime} {o1.Prezime}");
 
             o1.DatumRođenja = new DateTime(2025, 4, 13);
