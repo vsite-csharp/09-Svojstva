@@ -12,13 +12,10 @@ namespace Vsite.CSharp.Svojstva
                 Prezime = prezime;
             }
 
-            // 000 Javno dostupno polje Prezime nadomjestiti svojstvom (property) koje se izvan klase može samo čitati, a mijenjati se može samo iz klase.
+            // Javno dostupno polje Prezime nadomjestiti svojstvom (property) koje se izvan klase može samo čitati, a mijenjati se može samo iz klase.
 
-            public string Prezime
-            {
-                get; 
-                private set;
-            }
+            public string Prezime { get; protected set;}
+              
 
             // 001 Javno dostupno polje Ime nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali prilikom zadavanja treba onemogućiti
             // zadavanje nul-referencom ili praznim znakovnim nizom. U tim slučajevima treba baciti iznimke tipa ArgumentNullException, odnosno ArgumentException.
@@ -54,7 +51,7 @@ namespace Vsite.CSharp.Svojstva
             }
         }
 
-        // 004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
+        // Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
         // te iz konstruktora inicijalizirati članove bazne klase.
         public class OsobaSPromjenivimPrezimenom : Osoba
         {
