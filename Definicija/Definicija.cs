@@ -40,7 +40,7 @@ namespace Vsite.CSharp.Svojstva
             }
 
 
-            // TODO:002 Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
+            // 002 Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
             // datuma većeg od trenutnog treba baciti iznimku tipa ArgumentOutOfRangeException. U pozivajućem kodu staviti odgovarajući kod za hvatanje
             // iznimke koji će u slučaju iznimke ispisati odgovarajuću poruku.
 
@@ -51,7 +51,9 @@ namespace Vsite.CSharp.Svojstva
                 get => datumRođenja;
                 set
                 {
-                    //DZ
+                    if (value > DateTime.Now)
+                        throw new ArgumentOutOfRangeException(nameof(DatumRođenja), "Datum ne smije biti veći od trenutnog datuma!");
+                    datumRođenja = value;
                 }
             }
 
