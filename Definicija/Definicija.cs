@@ -46,7 +46,7 @@ namespace Vsite.CSharp.Svojstva
             }
 
 
-            // TODO:002 Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
+            // :002 Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
             // datuma većeg od trenutnog treba baciti iznimku tipa ArgumentOutOfRangeException. U pozivajućem kodu staviti odgovarajući kod za hvatanje
             // iznimke koji će u slučaju iznimke ispisati odgovarajuću poruku.
 
@@ -57,6 +57,12 @@ namespace Vsite.CSharp.Svojstva
                 get => datumRođenja;
                 set
                 {
+                    if(value > DateTime.Today)
+                    {
+                        throw new ArgumentOutOfRangeException("Unešen datum je veći od današnjeg. ", nameof(datumRođenja)); 
+                    }
+
+                    datumRođenja = value; 
                 }
             }
 
@@ -64,7 +70,7 @@ namespace Vsite.CSharp.Svojstva
 
         }
 
-        // TODO:004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
+        // :004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
         // te iz konstruktora inicijalizirati članove bazne klase.
         public class OsobaSPromjenivimPrezimenom : Osoba
         {
@@ -76,8 +82,8 @@ namespace Vsite.CSharp.Svojstva
 
             }
 
-            // TODO:005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
-            // TODO:006 Napisati unutar metode UdajSe kod kojim se mijenja prezime osobe.
+            // :005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
+            // :006 Napisati unutar metode UdajSe kod kojim se mijenja prezime osobe.
             public void UdajSe(string prezimePartnera)
             {
                 Prezime = prezimePartnera; 
@@ -87,7 +93,7 @@ namespace Vsite.CSharp.Svojstva
 
         static void Main(string[] args)
         {
-            // TODO:003 Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
+            // :003 Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
 
             Console.WriteLine("*** Osoba ***");
 
@@ -101,11 +107,19 @@ namespace Vsite.CSharp.Svojstva
             //o1.Prezime = "Kvrgić"; svojstvo sa lijeve strane pridruživanja, pokušava se pozvati set metoda
             Console.WriteLine($"{o1.Ime} {o1.Prezime}");
 
-            o1.DatumRođenja = new DateTime(2025, 4, 13);
-            Console.WriteLine(o1.DatumRođenja.ToShortDateString());
+            try
+            {
+                o1.DatumRođenja = new DateTime(2025, 4, 13);
+                Console.WriteLine(o1.DatumRođenja.ToShortDateString());
+            }
+            catch(ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.ParamName);
+            }
+            
 
-            // TODO:007 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
-            // TODO:008 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
+            // :007 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
+            // :008 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
             Console.WriteLine();
             Console.WriteLine($"*** OsobaSPromjenivimPrezimenom ***");
 
