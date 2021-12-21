@@ -26,10 +26,21 @@ namespace Vsite.CSharp.Svojstva
 
             public string ime;
 
-            public string Ime;
+            public string Ime
+            {
+                get => ime;
+                set 
+                {
+                    if (value == null)
+                        throw new ArgumentNullException(nameof(Ime));
+                    if (value.Trim().Length == 0)
+                        throw new ArgumentException(nameof(Ime));
+                    ime = value;
+                }
+            }
 
 
-            // TODO:002 Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
+            // :002 Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
             // datuma većeg od trenutnog treba baciti iznimku tipa ArgumentOutOfRangeException. U pozivajućem kodu staviti odgovarajući kod za hvatanje
             // iznimke koji će u slučaju iznimke ispisati odgovarajuću poruku.
 
@@ -41,23 +52,28 @@ namespace Vsite.CSharp.Svojstva
                 set
                 {
                     // za domaću zadaću
+                    if (value > DateTime.Today)
+                    {
+                        throw new ArgumentOutOfRangeException("Unešen datum je veći od današnjeg. ", nameof(datumRođenja));
+                    }                    
+                    datumRođenja = value;
                 }
             }
 
         }
 
-        // TODO:004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
+        // :004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
         // te iz konstruktora inicijalizirati članove bazne klase.
         public class OsobaSPromjenivimPrezimenom : Osoba
         {
-            public string Ime;
-            public string Prezime;
+            //public string Ime;
+            //public string Prezime;
 
-            public OsobaSPromjenivimPrezimenom(string ime, string prezime)
+            public OsobaSPromjenivimPrezimenom(string ime, string prezime) : base(ime, prezime)
             { }
 
-            // TODO:005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
-            // TODO:006 Napisati unutar metode UdajSe kod kojim se mijenja prezime osobe.
+            // :005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
+            // :006 Napisati unutar metode UdajSe kod kojim se mijenja prezime osobe.
             public void UdajSe(string prezimePartnera)
             {
                 Prezime = prezimePartnera;
