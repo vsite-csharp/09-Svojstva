@@ -48,14 +48,19 @@ namespace Vsite.CSharp.Svojstva
             {
                 get => datumRođenja;
                 set
-                { 
-                    //za domaću zadaću
+                {
+                    if (value > DateTime.Today)
+                    {
+                        throw new ArgumentOutOfRangeException("Unešen datum je veći od današnjeg. ", nameof(datumRođenja));
+                    }
+
+                    datumRođenja = value;
                 }
             }
 
         }
 
-        // TODO:004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
+        // 004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
         // te iz konstruktora inicijalizirati članove bazne klase.
         public class OsobaSPromjenivimPrezimenom : Osoba
         {
@@ -76,7 +81,7 @@ namespace Vsite.CSharp.Svojstva
 
         static void Main(string[] args)
         {
-            // TODO:003 Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
+            // 003 Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
 
             Console.WriteLine("*** Osoba ***");
 
@@ -90,8 +95,15 @@ namespace Vsite.CSharp.Svojstva
             //o1.Prezime = "Kvrgić";
             Console.WriteLine($"{o1.Ime} {o1.Prezime}");
 
-            o1.DatumRođenja = new DateTime(2025, 4, 13);
-            Console.WriteLine(o1.DatumRođenja.ToShortDateString());
+            try
+            {
+                o1.DatumRođenja = new DateTime(2025, 4, 13);
+                Console.WriteLine(o1.DatumRođenja.ToShortDateString());
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.ParamName);
+            }
 
             // 007 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
             // 008 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
