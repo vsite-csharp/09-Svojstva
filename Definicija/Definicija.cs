@@ -34,7 +34,7 @@ namespace Vsite.CSharp.Svojstva
                     {
                         throw new ArgumentNullException("Value cannot be null");
                     }
-                    if ((value.Trim().Length == 0)
+                    if (value.Trim().Length == 0)
                     {
                         throw new ArgumentException("Value cannot be empty");
                     }
