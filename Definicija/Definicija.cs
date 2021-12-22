@@ -32,14 +32,15 @@ namespace Vsite.CSharp.Svojstva
                 {
                     if (value == null)
                     {
-                        throw new ArgumentNullException(nameof(Ime));
+                        throw new ArgumentNullException("Ime nije postavljeno.");
+                    }
+                    if (string.IsNullOrEmpty(value))
+                    {
+                        throw new ArgumentException("Ime en smije biti prazno.");
                     }
 
-                    if (value.Trim().Length == 0)
-                    {
-                        throw new ArgumentException("Ime ne smije biti prazno", nameof(Ime));
-                        ime = Ime;
-                    }
+                    this.ime = value;
+
                 }
             }
 
@@ -51,12 +52,24 @@ namespace Vsite.CSharp.Svojstva
 
             public DateTime DatumRođenja
             {
-                get => datumRođenja;
+
+                get
+                {
+                    return this.datumRođenja;
+                }
                 set
                 {
-                    //TODO: dodati checkove za domaću zadaću
+                    var diff = value - DateTime.Now;
+                    if (diff.TotalMilliseconds > 0)
+                    {
+                        throw new ArgumentOutOfRangeException("Datum rođenja je izvan mogućeg ranga.");
+                    }
+
+                    this.datumRođenja = value;
                 }
+                
             }
+
 
 
         }
@@ -98,8 +111,8 @@ namespace Vsite.CSharp.Svojstva
             o1.DatumRođenja = new DateTime(2025, 4, 13);
             Console.WriteLine(o1.DatumRođenja.ToShortDateString());
 
-            // TODO:007 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
-            // TODO:008 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
+            // 007 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
+            // 008 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
             Console.WriteLine();
             Console.WriteLine($"*** OsobaSPromjenivimPrezimenom ***");
 
