@@ -18,10 +18,29 @@ namespace Vsite.CSharp.Svojstva
             { 51000, "Rijeka" }
         };
 
-        // TODO:040 Definirati svojstvo s int kao parametrom koje će za zadani poštanski broj vratiti mjesto.
+        // :040 Definirati svojstvo s int kao parametrom koje će za zadani poštanski broj vratiti mjesto.
+        public string this[int postal_number]
+        {
+            get
+            {
+                return popis[postal_number];
+            }
+        }
 
-        // TODO:042 Definirati svojstvo sa string kao parametrom koje će za zadano mjesto vratiti poštanski broj.
+        // :042 Definirati svojstvo sa string kao parametrom koje će za zadano mjesto vratiti poštanski broj.
+        public int this[string town]
+        {
+            get
+            {
+                foreach (KeyValuePair<int, string> entry in popis)
+                {
+                    if (entry.Value == town)
+                        return entry.Key;
+                }
 
+                throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 
     class Indekseri
@@ -30,10 +49,10 @@ namespace Vsite.CSharp.Svojstva
 
         static void IspišiNazivMjesta(int poštanskiBroj)
         {
-            // TODO:041 Otkomentirati donju naredbu, pokrenuti program i provjeriti ispis.
+            // :041 Otkomentirati donju naredbu, pokrenuti program i provjeriti ispis.
             try
             {
-                //Console.WriteLine("Poštanski broj {0} ima: {1}", poštanskiBroj, pb[poštanskiBroj]);
+                Console.WriteLine("Poštanski broj {0} ima: {1}", poštanskiBroj, pb[poštanskiBroj]);
             }
             catch (System.Exception e)
             {
@@ -43,10 +62,10 @@ namespace Vsite.CSharp.Svojstva
 
         static void IspišiPoštanskiBroj(string mjesto)
         {
-            // TODO:043 Otkomentirati donju naredbu, pokrenuti program i provjeriti ispis.
+            // :043 Otkomentirati donju naredbu, pokrenuti program i provjeriti ispis.
             try
             {
-                //Console.WriteLine("Poštanski broj za {0} je: {1}", mjesto, pb[mjesto]);
+                Console.WriteLine("Poštanski broj za {0} je: {1}", mjesto, pb[mjesto]);
             }
             catch (System.Exception e)
             {
@@ -54,7 +73,7 @@ namespace Vsite.CSharp.Svojstva
             }
         }
 
-        // TODO:044 Pokrenuti testove (2 testa "TestIndekseri" moraju proći).
+        // :044 Pokrenuti testove (2 testa "TestIndekseri" moraju proći).
         static void Main(string[] args)
         {
             IspišiNazivMjesta(21000);
