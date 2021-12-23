@@ -47,7 +47,7 @@ namespace Vsite.CSharp.Svojstva
             }
 
 
-            // TODO:003 Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
+            // Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
             // datuma većeg od trenutnog treba baciti iznimku tipa ArgumentOutOfRangeException. U pozivajućem kodu staviti odgovarajući kod za hvatanje
             // iznimke koji će u slučaju iznimke ispisati odgovarajuću poruku.
 
@@ -58,7 +58,12 @@ namespace Vsite.CSharp.Svojstva
                 get => this.datumRođenja;
                 set
                 {
-                    // Za DZ.
+                    if (DateTime.Now < value)
+                    {
+                        throw new ArgumentOutOfRangeException("The person cannot be born in the future...");
+                    }
+
+                    this.datumRođenja = value;
                 }
             }
         }
@@ -85,7 +90,7 @@ namespace Vsite.CSharp.Svojstva
 
         static void Main(string[] args)
         {
-            // TODO:003 Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
+            // Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
 
             Console.WriteLine("*** Osoba ***");
 
@@ -99,11 +104,20 @@ namespace Vsite.CSharp.Svojstva
             // o1.Prezime = "Kvrgić";
             Console.WriteLine($"{o1.Ime} {o1.Prezime}");
 
-            o1.DatumRođenja = new DateTime(2025, 4, 13);
-            Console.WriteLine(o1.DatumRođenja.ToShortDateString());
+            try
+            {
+                o1.DatumRođenja = new DateTime(2025, 4, 13);
+                Console.WriteLine(o1.DatumRođenja.ToShortDateString());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
 
             // Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
-            // TODO:008 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
+            // Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
             Console.WriteLine();
             Console.WriteLine($"*** OsobaSPromjenivimPrezimenom ***");
 
