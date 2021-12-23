@@ -28,7 +28,7 @@ namespace Vsite.CSharp.Svojstva
             public string Ime
             {
                 get => ime;
-                protected set
+                set
                 {
                     if (value == null)
                         throw new ArgumentNullException(nameof(Ime));
@@ -59,7 +59,7 @@ namespace Vsite.CSharp.Svojstva
 
         // :004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
         // te iz konstruktora inicijalizirati članove bazne klase.
-        public class OsobaSPromjenivimPrezimenom
+        public class OsobaSPromjenivimPrezimenom : Osoba
         {
             //public string Ime;
             //public string Prezime;

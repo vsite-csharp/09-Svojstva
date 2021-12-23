@@ -21,6 +21,7 @@ namespace Vsite.CSharp.Svojstva.Testovi
             Assert.IsNotNull(pi);
             Assert.IsTrue(!pi.CanWrite || pi.GetSetMethod(true).IsFamily || pi.GetSetMethod(true).IsPrivate);
             Assert.IsTrue(pi.CanRead);
+
         }
 
         [TestMethod]
