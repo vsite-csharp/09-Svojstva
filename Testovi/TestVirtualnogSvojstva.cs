@@ -16,11 +16,11 @@ namespace Vsite.CSharp.Svojstva.Testovi
             Assert.AreEqual("Pero, 3. godina", s.Identifikacija);
 
             Type tipOsoba = typeof(Student);
-            PropertyInfo pi = tipOsoba.GetProperty("Identifikacija");
+            PropertyInfo? pi = tipOsoba.GetProperty("Identifikacija");
             Assert.IsNotNull(pi);
             Assert.AreEqual(typeof(Student), pi.DeclaringType);
-            MethodInfo mi = pi.GetMethod;
-            Assert.IsTrue(mi.IsVirtual);
+            MethodInfo? mi = pi.GetMethod;
+            Assert.IsTrue(mi?.IsVirtual);
         }
     }
 }

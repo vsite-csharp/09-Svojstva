@@ -13,11 +13,11 @@ namespace Vsite.CSharp.Svojstva.Testovi
         [TestMethod]
         public void PrezimeJeSvojstvoKojeSeMožeSamoČitati()
         {
-            Osoba o = new Osoba("Franjo", "Šafranek");
+            Osoba? o = new Osoba("Franjo", "Šafranek");
             Assert.AreEqual("Šafranek", o.Prezime);
 
-            Type tipOsoba = typeof(Osoba);
-            PropertyInfo pi = tipOsoba.GetProperty("Prezime");
+            Type? tipOsoba = typeof(Osoba);
+            PropertyInfo? pi = tipOsoba.GetProperty("Prezime");
             Assert.IsNotNull(pi);
             Assert.IsTrue(!pi.CanWrite || pi.GetSetMethod(true).IsFamily || pi.GetSetMethod(true).IsPrivate);
             Assert.IsTrue(pi.CanRead);
@@ -26,11 +26,11 @@ namespace Vsite.CSharp.Svojstva.Testovi
         [TestMethod]
         public void ImeJeSvojstvoKojeSeMožeČitatiAKodZadavanjaBacaIznimkuZaNulReferencu()
         {
-            Osoba o = new Osoba("Franjo", "Šafranek");
+            Osoba? o = new Osoba("Franjo", "Šafranek");
             Assert.AreEqual("Franjo", o.Ime);
 
-            Type tipOsoba = typeof(Osoba);
-            PropertyInfo pi = tipOsoba.GetProperty("Ime");
+            Type? tipOsoba = typeof(Osoba);
+            PropertyInfo? pi = tipOsoba.GetProperty("Ime");
             Assert.IsNotNull(pi);
             Assert.IsTrue(pi.CanWrite);
             Assert.IsTrue(pi.CanRead);
@@ -52,11 +52,11 @@ namespace Vsite.CSharp.Svojstva.Testovi
         [TestMethod]
         public void ImeJeSvojstvoKojeSeMožeČitatiAKodZadavanjaBacaIznimkuZaPraznoIme()
         {
-            Osoba o = new Osoba("Franjo", "Šafranek");
+            Osoba? o = new Osoba("Franjo", "Šafranek");
             Assert.AreEqual("Franjo", o.Ime);
 
-            Type tipOsoba = typeof(Osoba);
-            PropertyInfo pi = tipOsoba.GetProperty("Ime");
+            Type? tipOsoba = typeof(Osoba);
+            PropertyInfo? pi = tipOsoba.GetProperty("Ime");
             Assert.IsNotNull(pi);
             Assert.IsTrue(pi.CanWrite);
             Assert.IsTrue(pi.CanRead);
@@ -78,11 +78,11 @@ namespace Vsite.CSharp.Svojstva.Testovi
         [TestMethod]
         public void DatumRođenjaJeSvojstvoKojeSeMožeČitatiAKodZadavanjaBacaIznimkuZaBudućiDatum()
         {
-            Osoba o = new Osoba("Franjo", "Šafranek");
+            Osoba? o = new Osoba("Franjo", "Šafranek");
             o.DatumRođenja = new DateTime(1923, 12, 5);
 
-            Type tipOsoba = typeof(Osoba);
-            PropertyInfo pi = tipOsoba.GetProperty("DatumRođenja");
+            Type? tipOsoba = typeof(Osoba);
+            PropertyInfo? pi = tipOsoba.GetProperty("DatumRođenja");
             Assert.IsNotNull(pi);
             Assert.IsTrue(pi.CanWrite);
             Assert.IsTrue(pi.CanRead);
@@ -104,10 +104,10 @@ namespace Vsite.CSharp.Svojstva.Testovi
         [TestMethod]
         public void ProtectedSvojstvoSeMožeKoristitiIzIzvedeneKlase()
         {
-            OsobaSPromjenivimPrezimenom o = new OsobaSPromjenivimPrezimenom("Ime", "Djevojačko prezime");
+            OsobaSPromjenivimPrezimenom? o = new OsobaSPromjenivimPrezimenom("Ime", "Djevojačko prezime");
 
-            Type tipOsoba = typeof(OsobaSPromjenivimPrezimenom);
-            PropertyInfo pi = tipOsoba.GetProperty("Prezime");
+            Type? tipOsoba = typeof(OsobaSPromjenivimPrezimenom);
+            PropertyInfo? pi = tipOsoba.GetProperty("Prezime");
             Assert.IsNotNull(pi);
             Assert.IsTrue(pi.DeclaringType == typeof(Osoba));
             Assert.IsTrue(pi.CanWrite);
