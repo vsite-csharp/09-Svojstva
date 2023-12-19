@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Vsite.CSharp.Svojstva
+﻿namespace Vsite.CSharp.Svojstva
 {
     class Definicija
     {
@@ -8,19 +6,19 @@ namespace Vsite.CSharp.Svojstva
         {
             public Osoba(string ime, string prezime)
             {
-                this.Ime = ime;
+                Ime = ime;
                 Prezime = prezime;
             }
 
             // TODO:000 Javno dostupno polje Prezime nadomjestiti svojstvom (property) koje se izvan klase može samo čitati, a mijenjati se može samo iz klase.
 
-            public string Prezime;
+            public string? Prezime;
 
 
             // TODO:001 Javno dostupno polje Ime nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali prilikom zadavanja treba onemogućiti
             // zadavanje nul-referencom ili praznim znakovnim nizom. U tim slučajevima treba baciti iznimke tipa ArgumentNullException, odnosno ArgumentException.
 
-            public string Ime;
+            public string? Ime;
 
 
             // TODO:002 Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
@@ -35,11 +33,12 @@ namespace Vsite.CSharp.Svojstva
         // te iz konstruktora inicijalizirati članove bazne klase.
         public class OsobaSPromjenivimPrezimenom
         {
-            public string Ime;
-            public string Prezime;
+            public string? Ime;
+            public string? Prezime;
 
             public OsobaSPromjenivimPrezimenom(string ime, string prezime)
-            { }
+            { 
+            }
 
             // TODO:005 Napraviti potrebne promjene svojstva Prezime u baznoj klasi Osoba da se iz metode UdajSe može promijeniti prezime osobe.
             // TODO:006 Napisati unutar metode UdajSe kod kojim se mijenja prezime osobe.
@@ -49,7 +48,7 @@ namespace Vsite.CSharp.Svojstva
         }
 
 
-        static void Main(string[] args)
+        static void Main()
         {
             // TODO:003 Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
 
@@ -79,7 +78,6 @@ namespace Vsite.CSharp.Svojstva
             Console.WriteLine($"Nakon udaje: {o2.Ime} {o2.Prezime}");
 
             Console.WriteLine("GOTOVO!!!");
-            Console.ReadKey(true);
         }
     }
 }

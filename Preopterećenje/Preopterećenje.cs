@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Vsite.CSharp.Svojstva
+﻿namespace Vsite.CSharp.Svojstva
 {
     // ilustracija kako svojstvo ne može biti tipa void i kako se ne mogu preopterećivati 
     class Preopterećenje
@@ -14,7 +12,7 @@ namespace Vsite.CSharp.Svojstva
 
         // TODO:021 Dodati novo svojstvo PreopterećenoSvojstvo koje će biti tipa int i pokušati prevesti kod.
 
-        static void Main(string[] args)
+        static void Main()
         {
         }
     }

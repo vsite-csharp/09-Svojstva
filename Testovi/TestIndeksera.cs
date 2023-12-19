@@ -1,8 +1,4 @@
-﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Vsite.CSharp;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace Vsite.CSharp.Svojstva.Testovi
 {

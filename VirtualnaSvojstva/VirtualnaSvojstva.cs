@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace Vsite.CSharp.Svojstva
 {
@@ -37,7 +36,7 @@ namespace Vsite.CSharp.Svojstva
 
         // TODO:012 Pokrenuti testove (test u grupi "TestVirtualnogSvojstva" mora proći).
 
-        static void Main(string[] args)
+        static void Main()
         {
             Osoba o = new Osoba("Janko");
             Console.WriteLine(o.Identifikacija);
@@ -47,7 +46,6 @@ namespace Vsite.CSharp.Svojstva
             Console.WriteLine(s.Identifikacija);
 
             Console.WriteLine("GOTOVO!!!");
-            Console.ReadKey(true);
         }
     }
 }

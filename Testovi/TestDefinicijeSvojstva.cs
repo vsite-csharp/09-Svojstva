@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace Vsite.CSharp.Svojstva.Testovi
 {
@@ -19,7 +17,7 @@ namespace Vsite.CSharp.Svojstva.Testovi
             Type? tipOsoba = typeof(Osoba);
             PropertyInfo? pi = tipOsoba.GetProperty("Prezime");
             Assert.IsNotNull(pi);
-            Assert.IsTrue(!pi.CanWrite || pi.GetSetMethod(true).IsFamily || pi.GetSetMethod(true).IsPrivate);
+            Assert.IsTrue(!pi.CanWrite || pi.GetSetMethod(true)!.IsFamily || pi.GetSetMethod(true)!.IsPrivate);
             Assert.IsTrue(pi.CanRead);
         }
 
@@ -113,7 +111,7 @@ namespace Vsite.CSharp.Svojstva.Testovi
             Assert.IsTrue(pi.CanWrite);
             Assert.IsTrue(pi.DeclaringType == typeof(Osoba));
             Assert.IsTrue(pi.CanRead);
-            Assert.IsTrue(pi.GetGetMethod(true).IsPublic);
+            Assert.IsTrue(pi.GetGetMethod(true)?.IsPublic);
 
             o.UdajSe("Muževo prezime");
             Assert.AreEqual("Muževo prezime", o.Prezime);

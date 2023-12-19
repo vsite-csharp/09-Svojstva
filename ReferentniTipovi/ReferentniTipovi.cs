@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace Vsite.CSharp.Svojstva
 {
@@ -16,17 +12,19 @@ namespace Vsite.CSharp.Svojstva
                 get { return namirnice; }
             }
 
-            private List<string> namirnice = new List<string>(new string[] { "kruh", "mlijeko" });
+            private readonly List<string> namirnice = new List<string>(new string[] { "kruh", "mlijeko" });
         }
             // TODO:032 Pokrenuti testove i provjeriti prolazi li test u grupi TestSvojstvaReferentnogTipa
 
         // TODO:030 Prevesti i pokrenuti program te provjeriti mijenja li se sadržaj liste namirnica u smočnici.
-        static void Main(string[] args)
+        static void Main()
         {
             Smočnica s = new Smočnica();
             Console.WriteLine("Izvorna smočnica sadrži:");
             foreach (var a in s.Namirnice)
+            {
                 Console.WriteLine(a);
+            }
             Console.WriteLine();
 
             s.Namirnice.Add("špek"); // dodajemo u smočnicu
@@ -35,14 +33,15 @@ namespace Vsite.CSharp.Svojstva
 
             Console.WriteLine("Novi sadržaj smočnice:");
             foreach (var a in s.Namirnice)
+            {
                 Console.WriteLine(a);
+            }
 
             // provjeravamo je li se sadržaj smočnice promijenio:
             Debug.Assert(s.Namirnice.Count() == 2);
             Debug.Assert(s.Namirnice[1] == "mlijeko");
 
             Console.WriteLine("GOTOVO!!!");
-            Console.ReadKey(true);
         }
     }
 }

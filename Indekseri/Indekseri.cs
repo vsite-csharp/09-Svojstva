@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Vsite.CSharp.Svojstva
+﻿namespace Vsite.CSharp.Svojstva
 {
     // primjer svojstava sa stringom kao parametrom
     class PoštanskiBrojevi
@@ -24,7 +20,7 @@ namespace Vsite.CSharp.Svojstva
 
     }
 
-    class Indekseri
+    static class Indekseri
     {
         static PoštanskiBrojevi pb = new PoštanskiBrojevi();
 
@@ -55,7 +51,7 @@ namespace Vsite.CSharp.Svojstva
         }
 
         // TODO:044 Pokrenuti testove (2 testa "TestIndekseri" moraju proći).
-        static void Main(string[] args)
+        static void Main()
         {
             IspišiNazivMjesta(21000);
             IspišiNazivMjesta(11111);
@@ -63,7 +59,6 @@ namespace Vsite.CSharp.Svojstva
             IspišiPoštanskiBroj("Nečujam");
 
             Console.WriteLine("GOTOVO!!!");
-            Console.ReadKey(true);
         }
     }
 }
