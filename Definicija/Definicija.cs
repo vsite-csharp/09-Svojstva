@@ -10,33 +10,62 @@
                 Prezime = prezime;
             }
 
-            // TODO:000 Javno dostupno polje Prezime nadomjestiti svojstvom (property) koje se izvan klase može samo čitati, a mijenjati se može samo iz klase.
+            // :000 Javno dostupno polje Prezime nadomjestiti svojstvom (property) koje se izvan klase može samo čitati, a mijenjati se može samo iz klase.
 
-            public string? Prezime;
+            public string? Prezime { get; protected set; }
 
 
-            // TODO:001 Javno dostupno polje Ime nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali prilikom zadavanja treba onemogućiti
+            // :001 Javno dostupno polje Ime nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali prilikom zadavanja treba onemogućiti
             // zadavanje nul-referencom ili praznim znakovnim nizom. U tim slučajevima treba baciti iznimke tipa ArgumentNullException, odnosno ArgumentException.
 
-            public string? Ime;
+            public string? Ime
+            {
+                get { return ime; }
+                set 
+                {
+                    if (value == null)
+                    {
+                        throw new ArgumentNullException();
+                    }
+                    if (value.Length == 0)
+                    {
+                        throw new ArgumentException();
+                    }
+                    ime = value;
+                }
+            }
 
-
-            // TODO:002 Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
+            private string ime;
+            // :002 Javno dostupno polje DatumRođenja nadomjestiti svojstvom (property) koje se izvan klase može čitati i zadavati, ali za slučaj zadavanja
             // datuma većeg od trenutnog treba baciti iznimku tipa ArgumentOutOfRangeException. U pozivajućem kodu staviti odgovarajući kod za hvatanje
             // iznimke koji će u slučaju iznimke ispisati odgovarajuću poruku.
 
-            public DateTime DatumRođenja;
+            public DateTime DatumRođenja 
+            {
+                get => datumRođenja;
+                set
+                {
+                    if ( value > DateTime.Now )
+                    {
+                        throw new ArgumentOutOfRangeException();
+                    }
+					datumRođenja = value;
+
+				}
+            }
+
+            private DateTime datumRođenja;
 
         }
 
         // TODO:004 Definirati da je klasa OsobaSPromjenivimPrezimenom izvedena iz klase Osoba, ukloniti polja Ime i Prezime iz klase OsobaSPromjenivimPrezimenom 
         // te iz konstruktora inicijalizirati članove bazne klase.
-        public class OsobaSPromjenivimPrezimenom
+        public class OsobaSPromjenivimPrezimenom : Osoba
         {
-            public string? Ime;
-            public string? Prezime;
+            //public string? Ime;
+            //public string? Prezime;
 
-            public OsobaSPromjenivimPrezimenom(string ime, string prezime)
+            public OsobaSPromjenivimPrezimenom(string ime, string prezime) : base(ime, prezime)
             { 
             }
 
@@ -44,7 +73,8 @@
             // TODO:006 Napisati unutar metode UdajSe kod kojim se mijenja prezime osobe.
             public void UdajSe(string prezimePartnera)
             {
-            }
+                Prezime = prezimePartnera;
+			}
         }
 
 
@@ -57,15 +87,30 @@
             Osoba o1 = new Osoba("Oliver", "Mlakar");
             Console.WriteLine($"{o1.Ime} {o1.Prezime}");
 
-            o1.DatumRođenja = new DateTime(1933, 4, 13);
-            Console.WriteLine(o1.DatumRođenja.ToShortDateString());
+            try
+            {
+				o1.DatumRođenja = new DateTime(1933, 4, 13);
+				Console.WriteLine(o1.DatumRođenja.ToShortDateString());
+			}
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("Neispravan datum");
+            }
+            
 
             o1.Ime = "Pero";
-            o1.Prezime = "Kvrgić";
+            //o1.Prezime = "Kvrgić";
             Console.WriteLine($"{o1.Ime} {o1.Prezime}");
 
-            o1.DatumRođenja = new DateTime(2025, 4, 13);
-            Console.WriteLine(o1.DatumRođenja.ToShortDateString());
+			try
+			{
+				o1.DatumRođenja = new DateTime(2025, 4, 13);
+				Console.WriteLine(o1.DatumRođenja.ToShortDateString());
+			}
+			catch (ArgumentOutOfRangeException)
+			{
+				Console.WriteLine("Neispravan datum");
+			}
 
             // TODO:007 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
             // TODO:008 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
