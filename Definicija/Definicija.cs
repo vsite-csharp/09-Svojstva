@@ -83,7 +83,7 @@ namespace Vsite.CSharp.Svojstva
 
         static void Main()
         {
-            // TODO:003 Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
+            // :003 Provjeriti donjim kodom ispravnost promjena (zakomentirati naredbe koje će uzrokovati pogrešku pri prevođenju nakon promjena u klasi Osoba).
 
             Console.WriteLine("*** Osoba ***");
 
@@ -112,8 +112,8 @@ namespace Vsite.CSharp.Svojstva
             {
                 Console.WriteLine("Neispravan datum");
             }
-            // TODO:007 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
-            // TODO:008 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
+            // :007 Pokrenuti program i provjeriti ispis za OsobuSPromjenivimPrezimenom.
+            // :008 Pokrenuti testove (5 testova u grupi "TestDefinicijeSvojstva" mora proći).
             Console.WriteLine();
             Console.WriteLine($"*** OsobaSPromjenivimPrezimenom ***");
 
