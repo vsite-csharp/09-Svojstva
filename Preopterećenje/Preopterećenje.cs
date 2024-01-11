@@ -8,10 +8,11 @@
             get { return Math.PI; }
         }
 
-        // TODO:020 Zadati svojstvo VoidSvojstvo tipa void i pokušati prevesti kod.
+        // :020 Zadati svojstvo VoidSvojstvo tipa void i pokušati prevesti kod.
+        //public void VoidSvojstvo; // Ova deklaracija neće proći kompilaciju
 
-        // TODO:021 Dodati novo svojstvo PreopterećenoSvojstvo koje će biti tipa int i pokušati prevesti kod.
-
+        // :021 Dodati novo svojstvo PreopterećenoSvojstvo koje će biti tipa int i pokušati prevesti kod.
+        // public int PreopterećenoSvojstvo; // Ova deklaracija neće proći kompilaciju
         static void Main()
         {
         }
